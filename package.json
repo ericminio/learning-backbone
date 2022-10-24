@@ -1,0 +1,17 @@
+{
+  "name": "learning-backbone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha app/**/*.spec.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "jsdom": "^20.0.1",
+    "mocha": "^10.1.0"
+  }
+}
