@@ -4,13 +4,22 @@
 
 <head>
     <title>Backbone</title>
+    <script type="application/javascript" src="https://underscorejs.org/underscore-umd-min.js"></script>
+    <script type="application/javascript" src="https://backbonejs.org/backbone-min.js"></script>
 </head>
 
 <body>
     <section>
         <h1>Best seller</h1>
-        <label>Clean Code</label>
+        <label id="best-seller"></label>
     </section>
+
+    <script>
+        var Book = Backbone.Model.extend();
+        var bestSeller = new Book();
+        bestSeller.set({ title: 'Clean Code' });
+        document.getElementById('best-seller').innerHTML = bestSeller.get('title');
+    </script>
 </body>
 
 </html>
