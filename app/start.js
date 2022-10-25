@@ -1,17 +1,12 @@
 import { Router } from "./about/support/router.js";
 import { Server } from "./about/support/server.js";
-import fs from 'fs';
 import { payload } from './about/support/payload.js';
+import { asset } from "./about/support/asset.js";
 
 const router = new Router([
     {
         incoming: /GET \//,
-        handler: (request, response) => {
-            const html = fs.readFileSync('./save.html').toString();
-            response.setHeader('Content-Length', html.length);
-            response.setHeader('Content-Type', 'text/html');
-            response.end(html);
-        }
+        handler: asset('./save.html')
     },
     {
         incoming: /POST \/books/,

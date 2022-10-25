@@ -3,17 +3,12 @@ import { Server } from './support/server.js';
 import { Router } from './support/router.js';
 import { page } from './support/page.js';
 import { eventually } from './support/eventually.js';
-import fs from 'fs';
+import { asset } from './support/asset.js';
 
 const router = new Router([
     {
         incoming: /GET \//,
-        handler: (request, response) => {
-            const html = fs.readFileSync('./app/index.html').toString();
-            response.setHeader('Content-Length', html.length);
-            response.setHeader('Content-Type', 'text/html');
-            response.end(html);
-        }
+        handler: asset('./app/index.html')
     }
 ]);
 describe('Displaying model', () => {
