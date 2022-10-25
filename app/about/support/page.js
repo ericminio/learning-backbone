@@ -7,9 +7,10 @@ const open = (url, done) => {
             resources: "usable"
         }).then(dom => {
             page.window = dom.window;
+            page.window.console = console;
             page.document = dom.window.document;
             if (page.document.readyState === 'loading') {
-                page.document.addEventListener('DOMContentLoaded', resolve);
+                page.document.addEventListener('DOMContentLoaded', () => { resolve(); });
             }
             else { resolve(); }
         }).catch(reject);
